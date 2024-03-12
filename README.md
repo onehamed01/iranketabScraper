@@ -36,6 +36,6 @@ This scraper project utilizes BeautifulSoup (bs4), requests, and Flask to scrape
 This project is version 1.0, and the developer intends to continue its evolution. To keep track of updates and new versions, refer to the [Version History](#version-history) section below.
 
 ## Version History
-- [Version 1.0](https://github.com/your_username/your_repository/releases/tag/v1.0): Initial release (current version).
+- [Version 1.0](https://github.com/onehamed01/iranketabScraper/): Initial release (current version).
 
 Feel free to contribute, report issues, or suggest improvements. Happy scraping!
