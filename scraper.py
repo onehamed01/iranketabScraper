@@ -101,9 +101,15 @@ def scrape_content(urls):
                 available = re.sub(r'\s+|\n|\t', ' ', x.find('li', {'class': 'exists-book'}).get_text())
             except AttributeError:
                 available = "None"
-            author_entesharat = x.find_all('div', {'class': "col-xs-12 prodoct-attribute-items"})
-            entesharat = re.sub(r'\s+|\n|\t', ' ', author_entesharat[0].get_text())
-            author = re.sub(r'\s+|\n|\t', ' ', author_entesharat[1].get_text())
+            try:
+                author_entesharat = x.find_all('div', {'class': "col-xs-12 prodoct-attribute-items"})
+                entesharat = re.sub(r'\s+|\n|\t', ' ', author_entesharat[0].get_text())
+            except IndexError:
+                entesharat = "None"
+            try:
+                author = re.sub(r'\s+|\n|\t', ' ', author_entesharat[1].get_text())
+            except IndexError:
+                author = "None"
             description = re.sub(r'\s+|\n|\t', ' ', x.find('div', {"class": None}).get_text())
 
             author_en = re.sub(r'\s+|\n|\t', ' ', x.find('a', {"itemprop": "author"}).get("href"))
