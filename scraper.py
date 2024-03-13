@@ -111,10 +111,13 @@ def scrape_content(urls):
             except IndexError:
                 author = "None"
             description = re.sub(r'\s+|\n|\t', ' ', x.find('div', {"class": None}).get_text())
+            try:
+                author_en = re.sub(r'\s+|\n|\t', ' ', x.find('a', {"itemprop": "author"}).get("href"))
+                author_en = author_en.split("-")
+                author_en = " ".join(author_en[1:])
+            except AttributeError:
+                author_en = "None"
 
-            author_en = re.sub(r'\s+|\n|\t', ' ', x.find('a', {"itemprop": "author"}).get("href"))
-            author_en = author_en.split("-")
-            author_en = " ".join(author_en[1:])
             if "%" in author_en:
                 author_en = "None"
 
